@@ -6,15 +6,3 @@ module.exports = new Pool({
     ssl: false
 
 });
-
-// const express = require("express");
-// const getUsers = require("../database/queries/getUsers");
-
-// const router = express.Router();
-
-// router.get("/users", (req, res) => {
-//     console.log(getUsers().then(data => {
-//         return res.json(data.rows);
-//     }).catch(err => console.log(err)));
-// });
-// module.exports = router;
