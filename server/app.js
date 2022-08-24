@@ -4,7 +4,7 @@ const express = require("express");
 
 const compression = require("compression");
 const helmet = require("helmet");
-const router = require("./controllers/postData");
+const router = require("./controllers");
 const app = express();
 
 app.use(express.json());

@@ -1,11 +1,21 @@
-const express = require("express");
 const getUsers = require("../database/queries/getUsers");
 
-const router = express.Router();
+const signin = (req, res) => {
+    const { username, password } = req.body;
+    getUsers({ username, password })
+        .then((data) => {
+            const user = data.rows[0]
 
-router.get("/users", (req, res) => {
-    getUsers().then(data => {
-        return res.json(data.rows);
-    }).catch(err => console.log(err));
-});
-module.exports = router;
+            if (!user) {
+                return res.status(404).json({ error: "user not found" })
+            }
+            res.redirect("/todo/index.html");
+            // res.json(user);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ msg: "server error" })
+        });
+}
+
+module.exports = signin
