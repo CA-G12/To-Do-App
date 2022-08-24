@@ -1,11 +1,12 @@
 const { join } = require("path");
-
 const express = require("express");
-
 const compression = require("compression");
 const helmet = require("helmet");
 const router = require("./controllers");
+
 const app = express();
+
+app.set('port', process.env.PORT || 5050);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
