@@ -1,6 +1,6 @@
 require('dotenv').config();
 // const { DATA_URL } = process.env;
-const DATA_URL = "";
+let DATA_URL = "";
 const { Pool } = require('pg');
 if (process.env.NODE_ENV === "production") {
     DATA_URL = process.env.DATABASE_URL;
@@ -10,7 +10,7 @@ else if (process.env.NODE_ENV === "development") {
 }
 module.exports = new Pool({
     connectionString: DATA_URL,
-    ssl: process.env === "localhost" ? false : {
+    ssl: process.env.NODE_ENV != "production" ? false : {
         rejectUnauthorized: false,
     }
 
