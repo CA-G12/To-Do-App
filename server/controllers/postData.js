@@ -7,7 +7,10 @@ const signup = (req, res) => {
         .then((data) => {
             res.redirect("/todo/index.html");
         })
-        .catch((err) => res.status(500).json({ msg: "server error" }));
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ msg: "server error" })
+        });
 }
 
 module.exports = signup;
