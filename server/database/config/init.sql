@@ -12,14 +12,9 @@ CREATE TABLE tasks(
     user_id integer references users(id),
     task varchar(255) NOT NULL
 );
-INSERT INTO USERS
-VALUES (1, 'BEKO', 'dbakeza2002@gmail.com', '123');
-INSERT INTO USERS
-VALUES (2, 'BEKO222', 'bekooooooo@gmail.com', '123');
-INSERT INTO tasks
-VALUES (1, 1, 'ASK1');
-INSERT INTO tasks
-VALUES (2, 1, 'TASK2');
-INSERT INTO tasks
-VALUES (3, 2, 'TASK3');
+INSERT INTO USERS(user_name,email,password)
+VALUES ('BEKO', 'dbakeza2002@gmail.com', '123'),('BEKO222', 'bekooooooo@gmail.com', '123');
+
+INSERT INTO tasks(user_id,task)
+VALUES ( 1, 'ASK1'),(1, 'TASK2'),(2, 'TASK3');
 COMMIT;
