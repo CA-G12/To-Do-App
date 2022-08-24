@@ -1,12 +1,10 @@
-const express = require("express");
 
 const signup = require("./postData")
 const signin = require("./getData")
+const {getTasksController, postTasksController, deleteTaskController, updateTaskController} = require('./tasks')
 
 
-const router = express.Router();
 
-router.post("/create-user", signup);
-router.post("/users", signin);
-
-module.exports = router;
+module.exports = {
+  signin, signup, getTasksController, postTasksController, updateTaskController, deleteTaskController
+}
