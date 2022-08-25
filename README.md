@@ -11,7 +11,9 @@
 - I should be able to delete any task
 - If the Tab Suddenly closed it should store my tasks
 
-## 📍 You can see our App by clicking [here](https://toddooo.herokuapp.com/)
+## 📍 You can see our Application by clicking [here](https://toddooo.herokuapp.com/)
+
+## 📍 You can see our database schema by clicking [here](https://drawsql.app/teams/bekos-team/diagrams/to-do-app)
 
 ## 📍 How do I get the project on my local machine?
 
