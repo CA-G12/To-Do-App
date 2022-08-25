@@ -1,20 +1,25 @@
 const tasksContainer = document.getElementById("tasks");
 const mainInput = document.getElementById("new-task-input");
-// const addTask = document.getElementById("new-task-submit");
 const addTask = document.querySelector(".submit-task");
 const updateTask = document.querySelector(".update-task");
 
 updateTask.style.display = "none";
 
+let username = localStorage.getItem("signinUsername");
+
 addTask.addEventListener("click", (e) => {
   e.preventDefault();
   const task = mainInput.value;
 
-  fetch(`/tasks/${task}`, { method: "POST" });
+  fetch(`/tasks/${task}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({username})
+  })
   window.location.reload();
 });
 
-fetch("/tasks")
+fetch(`/tasks/${username}`)
   .then((res) => res.json())
   .then((tasks) => createTaskDom(tasks))
   .catch((err) => console.log("err" + err));
@@ -53,10 +58,8 @@ const createTaskDom = (tasks) => {
     deleteBtn.addEventListener("click", deleteTask);
 
     taskBtns.append(editBtn, deleteBtn);
-    // taskBtns.append(editBtn);
     taskContent.append(input);
     taskSec.append(taskContent, taskBtns);
-    // taskSec.append(taskContent)
     tasksContainer.append(taskSec);
   });
 };
@@ -72,8 +75,6 @@ updateTask.addEventListener("click", (e) => {
   e.preventDefault();
 
   const task = mainInput.value;
-  // taskIdUpdating
-  console.log(taskIdUpdating);
 
   fetch(`/tasks/${task}/${taskIdUpdating}`, { method: "PUT" });
   window.location.reload();

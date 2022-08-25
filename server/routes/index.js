@@ -7,7 +7,7 @@ const {
 router.post("/create-user", signup);
 router.post("/users", signin);
 
-router.get("/tasks", getTasksController);
+router.get("/tasks/:username", getTasksController);
 
 router.post('/tasks/:value', postTasksController)
 

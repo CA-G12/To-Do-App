@@ -8,7 +8,7 @@ const signup = (req, res) => {
             res.redirect("/todo/index.html");
         })
         .catch((err) => {
-            console.log(err);
+            // console.log(err);
             res.status(500).json({ msg: "server error" })
         });
 }
