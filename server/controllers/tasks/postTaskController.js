@@ -4,7 +4,8 @@ const {
 
 const postTaskController = (req, res) => {
   const { value } = req.params;
-  postTask(value)
+  const userName = req.body.username;
+  postTask(value, userName)
     .then((res) => res.json())
     .then((data) => console.log(data))
     .catch((err) => "err" + res.json(err));

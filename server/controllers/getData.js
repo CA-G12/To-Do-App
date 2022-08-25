@@ -13,7 +13,7 @@ const signin = (req, res) => {
             // res.json(user);
         })
         .catch((err) => {
-            console.log(err);
+            // console.log(err);
             res.status(500).json({ msg: "server error" })
         });
 }
