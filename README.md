@@ -11,7 +11,7 @@
 - I should be able to delete any task
 - If the Tab Suddenly closed it should store my tasks
 
-## 📍 You can see our App by clicking [here](https://todo-application-22.herokuapp.com/)
+## 📍 You can see our App by clicking [here](https://toddooo.herokuapp.com/)
 
 ## 📍 How do I get the project on my local machine?
 
